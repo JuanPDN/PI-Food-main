@@ -3,7 +3,7 @@ require('dotenv').config()
 const { API_KEY } = process.env
 
 
-const getRecipe = async (req, res) => {
+const getRecipeById = async (req, res) => {
     const { idRecipe } = req.params
     try {
         const { data } = await axios(`https://api.spoonacular.com/recipes/${idRecipe}/information?apiKey=${API_KEY}&addRecipeInformation=true`)
@@ -21,4 +21,4 @@ const getRecipe = async (req, res) => {
     }
 }
 
-module.exports = getRecipe
+module.exports = getRecipeById
