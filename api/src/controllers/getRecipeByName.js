@@ -5,21 +5,26 @@ const { Recipe } = require('../db');
 require('dotenv').config()
 
 const getRecipeByName = async (req, res) => {
-    const { name } = req.query
+    const { nameRecipe } = req.query
 
     try {
-        const { data } = await axios(`https://api.spoonacular.com/recipes/complexSearch?query=${name}&apiKey=${API_KEY}`)
-        const dbResult = Recipe.findAll({
+        const { data } = await axios(`https://api.spoonacular.com/recipes/complexSearch?query=${nameRecipe}&apiKey=${API_KEY}`)
+        const dbResult = await Recipe.findAll({
             where: {
                 name: {
-                    [Op.like]: `%${name}%`
+                    [Op.like]: `%${nameRecipe}%`
                 }
             }
         })
-        if (data.results.length === 0 || dbResult.length === 0) {
+        if (dbResult.length > 0 && data.results.length > 0) {
+            res.status(200).json({ dbResult, data })
+        } else if (dbResult.length > 0) {
+            return res.status(200).json(dbResult)
+        } else if (data.results.length > 0) {
+            return res.status(200).json(data)
+        } else {
             return res.status(404).send('Recipe not found')
         }
-        res.status(200).json({ data, dbResult })
     } catch (error) {
         res.status(500).json({ error: error.message })
     }

@@ -23,7 +23,7 @@ const getRecipeById = async (req, res) => {
             }
         })
         if (recipeDb.length === 0){
-           return res.status(200).json(recipe)
+            res.status(200).json(recipe)
         } else {
             res.status(200).json({recipe,recipeDb})
         }

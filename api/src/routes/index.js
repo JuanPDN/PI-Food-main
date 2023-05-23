@@ -5,7 +5,8 @@ const { Router } = require('express');
 const { Diets, Recipe } = require('../db');
 const getRecipeById = require('../controllers/getRecipeById');
 const getRecipeByName = require('../controllers/getRecipeByName')
-const postRecipe = require('../controllers/postRecipe')
+const postRecipe = require('../controllers/postRecipe');
+const getDiet = require('../controllers/getDiets');
 
 
 const router = Router();
@@ -15,6 +16,7 @@ const router = Router();
 router.get('/recipes/:idRecipe', getRecipeById)
 router.get('/recipes',getRecipeByName)
 router.post('/recipes',postRecipe)
+router.get('/diet',getDiet)
 
 
 

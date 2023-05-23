@@ -13,7 +13,7 @@ const postRecipe = async (req, res) => {
             }
         })
         if (recipe) {
-            res.status(400).send('receta ya creada')
+            return res.status(400).send('receta ya creada')
         }
         const newRecipe = await Recipe.create({
             name,
