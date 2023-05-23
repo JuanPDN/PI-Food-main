@@ -13,9 +13,10 @@ const getRecipeById = async (req, res) => {
             image: data.image,
             summary: data.summary,
             healthScore: data.healthScore,
-            stepToStep: data.instructions
+            stepToStep: data.instructions,
+            diets: data.diets
         }
-        res.status(200).json(recipe)
+        res.status(200).json(data)
     } catch (error) {
         res.status(500).json({ error: error.message })
     }
