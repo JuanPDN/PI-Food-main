@@ -1,8 +1,8 @@
+require('dotenv').config()
 const { default: axios } = require("axios");
 const { Op } = require('sequelize')
 const { API_KEY } = process.env
 const { Recipe } = require('../db');
-require('dotenv').config()
 
 const getRecipeByName = async (req, res) => {
     const { nameRecipe } = req.query

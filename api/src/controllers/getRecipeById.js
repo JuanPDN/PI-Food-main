@@ -14,18 +14,18 @@ const getRecipeById = async (req, res) => {
             image: data.image,
             summary: data.summary,
             healthScore: data.healthScore,
-            stepToStep: data.instructions,
+            stepToStep: data.analyzedInstructions[0].steps,
             diets: data.diets
         }
         const recipeDb = await Recipe.findAll({
-            where:{
+            where: {
                 id: idRecipe
             }
         })
-        if (recipeDb.length === 0){
+        if (recipeDb.length === 0) {
             res.status(200).json(recipe)
         } else {
-            res.status(200).json({recipe,recipeDb})
+            res.status(200).json({ recipe, recipeDb })
         }
 
     } catch (error) {
