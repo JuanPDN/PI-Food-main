@@ -10,7 +10,17 @@ const getRecipeByName = async (req, res) => {
     try {
         if (!nameRecipe) {
             const { data } = await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true`)
-            res.status(200).json(data)
+            const result = []
+            data.results.forEach(element => {
+                result.push({
+                    id:element.id,
+                    name: element.title,
+                    image: element.image,
+                    diets: element.diets
+                })
+            });
+
+            return res.status(200).json(result)
         }
         const { data } = await axios(`https://api.spoonacular.com/recipes/complexSearch?query=${nameRecipe}&apiKey=${API_KEY}`)
         const dbResult = await Recipe.findAll({
@@ -20,15 +30,18 @@ const getRecipeByName = async (req, res) => {
                 }
             }
         })
+        const diets = {}
         if (dbResult.length > 0 && data.results.length > 0) {
-            res.status(200).json({ dbResult, data })
+            diets = { dbResult, data }
         } else if (dbResult.length > 0) {
-            return res.status(200).json(dbResult)
+            diets = dbResult
         } else if (data.results.length > 0) {
-            return res.status(200).json(data)
+            diets = data
         } else {
             return res.status(404).send('Recipe not found')
         }
+        res.status(200).json(diets)
+
     } catch (error) {
         res.status(500).json({ error: error.message })
     }
