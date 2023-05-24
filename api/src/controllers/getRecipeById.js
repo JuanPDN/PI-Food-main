@@ -6,6 +6,7 @@ const { Recipe } = require('../db');
 
 const getRecipeById = async (req, res) => {
     const { idRecipe } = req.params
+
     try {
         const { data } = await axios(`https://api.spoonacular.com/recipes/${idRecipe}/information?apiKey=${API_KEY}&addRecipeInformation=true`)
         const recipe = {
@@ -17,6 +18,7 @@ const getRecipeById = async (req, res) => {
             stepToStep: data.analyzedInstructions[0].steps,
             diets: data.diets
         }
+        
         const recipeDb = await Recipe.findAll({
             where: {
                 id: idRecipe

@@ -32,7 +32,6 @@ module.exports = (sequelize) => {
     },
     diet:{
       type: DataTypes.STRING,
-      allowNull: false
     }
   },{ timestamps: false });
 };
