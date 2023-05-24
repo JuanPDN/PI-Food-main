@@ -8,6 +8,10 @@ const getRecipeByName = async (req, res) => {
     const { nameRecipe } = req.query
 
     try {
+        if (!nameRecipe) {
+            const { data } = await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}`)
+            res.status(200).json(data)
+        }
         const { data } = await axios(`https://api.spoonacular.com/recipes/complexSearch?query=${nameRecipe}&apiKey=${API_KEY}`)
         const dbResult = await Recipe.findAll({
             where: {
