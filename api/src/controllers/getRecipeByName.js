@@ -9,7 +9,7 @@ const getRecipeByName = async (req, res) => {
 
     try {
         if (!nameRecipe) {
-            const { data } = await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true`)
+            const { data } = await axios(`https://api.spoonacular.com/recipes/complexSearch?number=100&apiKey=${API_KEY}&addRecipeInformation=true`)
             const result = []
             data.results.forEach(element => {
                 result.push({

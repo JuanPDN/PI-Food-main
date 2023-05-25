@@ -3,20 +3,40 @@ const { default: axios } = require("axios");
 const { Diets } = require('../db');
 const { API_KEY } = process.env
 
-const getDiet = async (req, res) => {
-    const diets = await Diets.findAll()
-    if (diets.length === 0) {
-        const { data } = await axios(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true`)
-        const result = Object.keys(data.results[0]).slice(0, 9)
+const postDiet = async () => {
+    try {
         const aux = []
-        result.map(e => {
-            aux.push({ name: e })
-        })
-        const listdiets = await Diets.bulkCreate(aux)
+        const { data } = await axios(`https://api.spoonacular.com/recipes/complexSearch?number=100&apiKey=${API_KEY}&addRecipeInformation=true`)
+        const diets = data.results.map(e => e.diets)
+        for (let i = 0; i < diets.length; i++) {
+            for (let j = 0; j < diets[i].length; j++) {
+                if (!aux.includes(diets[i][j])) {
+                    aux.push(diets[i][j])
+                }
+            }
+        }
+        await Diets.bulkCreate(aux.map(e => {
+            return {
+                name: e
+            }
+        }))
+        console.log("Carga Completa");
 
-        res.status(200).json(listdiets)
+    } catch (error) {
+        return (error.message)
     }
-
 }
 
-module.exports = getDiet
+const getDiet = async (req, res)=>{
+    try {
+        const dietsDb = await Diets.findAll()
+        res.status(200).json(dietsDb)
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
+}
+
+module.exports = {
+    postDiet,
+    getDiet
+}
