@@ -1,4 +1,4 @@
-const { Recipe } = require('../db');
+const { Recipe, Diets } = require('../db');
 require('dotenv').config()
 
 const postRecipe = async (req, res) => {
@@ -21,7 +21,12 @@ const postRecipe = async (req, res) => {
             summary,
             healtScore,
             stepToStep,
-            diet
+            diet,
+            includes:{
+                model:{
+                    Diets
+                }
+            }
         })
         res.status(200).json(newRecipe)
     } catch (error) {
