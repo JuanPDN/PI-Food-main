@@ -5,14 +5,14 @@ const { Recipe } = require('../db');
 
 
 const getRecipeById = async (req, res) => {
-    const { idRecipe } = req.params
+    const { id } = req.params
     const regEx = /^[0-9]+$/;
     
     
     try {
 
-        if (regEx.test(idRecipe)) {
-            const { data } = await axios(`https://api.spoonacular.com/recipes/${idRecipe}/information?apiKey=${API_KEY}&addRecipeInformation=true`)
+        if (regEx.test(id)) {
+            const { data } = await axios(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}&addRecipeInformation=true`)
             const recipe = {
                 id: data.id,
                 name: data.title,
@@ -26,7 +26,7 @@ const getRecipeById = async (req, res) => {
         }else {
             const recipeDb = await Recipe.findOne({
                 where: {
-                    id: idRecipe
+                    id: id
                 }
             })
             res.status(200).json(recipeDb)
