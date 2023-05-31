@@ -11,8 +11,7 @@ function Cards(props) {
                         id={recipe.id}
                         name={recipe.name}
                         image={recipe.image}
-                        summary={recipe.summary}
-                        healthScore={recipe.healthScore}
+                        diets={recipe.diets}
                     />
                 )
             }

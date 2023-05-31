@@ -9,7 +9,7 @@ function Details() {
     const [recipe, setRecipe] = useState([])
     const { id } = useParams()
 
-    const Recipes = async () => {
+    const Recipes = async (id) => {
         try {
             const listRecipes = await axios.get(`http://localhost:3001/recipes/${id}`)
             setRecipe(listRecipes.data)
@@ -19,8 +19,8 @@ function Details() {
     }
 
     useEffect(() => {
-        Recipes()
-    })
+        Recipes(id)
+    },[id])
 
     const { name, image, summary, healthScore, stepToStep } = recipe
 
@@ -35,7 +35,7 @@ function Details() {
                 stepToStep?.map((steps) => {
                     return (
                         <div>
-                            <h3>{steps.number}</h3>
+                            <h3>Satep: {steps.number}</h3>
                             <p>{steps.step}</p>
                         </div>
                     )

@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import Details from './components/details/detail';
 import Cards from './components/cards/cards';
 import data from './data';
+import NavBar from './components/navBar/navBar';
 
 function App() {
 
@@ -20,19 +21,20 @@ function App() {
       throw new Error(error)
     }
   }
-  
+
   useEffect(() => {
     Recipes()
-  },[])
+  }, [])
 
   return (
     <div className="App">
       <h1>Henry Food</h1>
 
+      <NavBar />
       <Routes>
         <Route path='/' element={<LandingPage />} />
-        <Route path='/home' element={<Cards recipe= {recipes} />} />
-        <Route path='/detail/:id' element={<Details/>}/>
+        <Route path='/home' element={<Cards recipe={recipes} />} />
+        <Route path='/detail/:id' element={<Details />} />
       </Routes>
     </div>
   );
