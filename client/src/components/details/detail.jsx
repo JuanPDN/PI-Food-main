@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import ReactHtmlParser from 'react-html-parser';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 
 function Details() {
@@ -20,13 +20,16 @@ function Details() {
 
     useEffect(() => {
         Recipes(id)
-    },[id])
+    }, [id])
 
-    const { name, image, summary, healthScore, stepToStep } = recipe
-
+    const { name, image, summary, healthScore, stepToStep, diets } = recipe
 
     return (
         <div key={id}>
+            <Link to='/home'>
+            <button>Home</button>
+            </Link>
+            <p>{id}</p>
             <h2>{name}</h2>
             <p> health Score: {healthScore}</p>
             <img src={image} alt="" />
@@ -41,6 +44,11 @@ function Details() {
                     )
                 })
             }
+            <ul>
+                {diets?.map((diet, index) =>
+                    <li key={index}>{diet}</li>
+                )}
+            </ul>
         </div>);
 }
 
