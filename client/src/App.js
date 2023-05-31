@@ -1,10 +1,11 @@
 import './App.css';
 import LandingPage from './components/landing/landingPage';
 import { Route, Routes } from 'react-router-dom';
-import axios from 'axios'
+//import axios from 'axios'
 import { useEffect, useState } from 'react';
 import Details from './components/details/detail';
 import Cards from './components/cards/cards';
+import data from './data';
 
 function App() {
 
@@ -12,8 +13,9 @@ function App() {
 
   const Recipes = async () => {
     try {
-      const listRecipes = await axios.get('http://localhost:3001/recipes')
-      setRecipe(listRecipes.data)
+      //const listRecipes = await axios.get('http://localhost:3001/recipes')
+      //setRecipe(listRecipes.data)
+      setRecipe(data)
     } catch (error) {
       throw new Error(error)
     }
@@ -23,7 +25,6 @@ function App() {
     Recipes()
   },[])
 
-  console.log(recipes);
   return (
     <div className="App">
       <h1>Henry Food</h1>
