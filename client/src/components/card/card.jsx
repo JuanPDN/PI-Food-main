@@ -6,12 +6,12 @@ function Card(props) {
 
     return (
         <Link to={`/detail/${id}`}>
-            <div key={id}>
+            <div>
                 <img src={image} alt={name} />
                 <h2>{name}</h2>
                 <ul>
-                    {diets.map(diet =>
-                        <li>{diet}</li>
+                    {diets.map((diet,index) =>
+                        <li key={index}>{diet}</li>
                     )}
                 </ul>
             </div>
