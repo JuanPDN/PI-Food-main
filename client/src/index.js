@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { BrowserRouter, RouterProvider } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
 import store from './redux/store';
@@ -10,13 +11,13 @@ import store from './redux/store';
 axios.defaults.baseURL = 'http://localhost:3001'
 
 ReactDOM.render(
-  <RouterProvider store={store}>
+  <Provider store={store}>
     <BrowserRouter>
       <React.StrictMode>
         <App />
       </React.StrictMode>
     </BrowserRouter>
-  </RouterProvider>,
+  </Provider>,
   document.getElementById('root')
 );
 
