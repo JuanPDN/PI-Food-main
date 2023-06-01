@@ -5,7 +5,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Details from './components/details/detail';
 import Cards from './components/cards/cards';
-import data from './data';
+import { data } from './data';
 import NavBar from './components/navBar/navBar';
 
 function App() {

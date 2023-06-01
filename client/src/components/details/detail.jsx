@@ -1,7 +1,7 @@
-import axios from 'axios';
+//import axios from 'axios';
 import { useEffect, useState } from 'react';
-import ReactHtmlParser from 'react-html-parser';
 import { Link, useParams } from 'react-router-dom';
+import { detail } from '../../data';
 
 
 function Details() {
@@ -11,8 +11,9 @@ function Details() {
 
     const Recipes = async (id) => {
         try {
-            const listRecipes = await axios.get(`http://localhost:3001/recipes/${id}`)
-            setRecipe(listRecipes.data)
+            //const listRecipes = await axios.get(`http://localhost:3001/recipes/${id}`)
+            //setRecipe(listRecipes.data)
+            setRecipe(detail)
         } catch (error) {
             throw new Error(error)
         }
@@ -29,11 +30,11 @@ function Details() {
             <Link to='/home'>
             <button>Home</button>
             </Link>
-            <p>{id}</p>
+            <p>ID: {id}</p>
             <h2>{name}</h2>
             <p> health Score: {healthScore}</p>
             <img src={image} alt="" />
-            <p>{ReactHtmlParser(summary)}</p>
+            <p dangerouslySetInnerHTML={{ __html: summary }}></p>
             {
                 stepToStep?.map((steps) => {
                     return (
@@ -51,5 +52,6 @@ function Details() {
             </ul>
         </div>);
 }
+
 
 export default Details;
