@@ -26,7 +26,6 @@ function App() {
       }
     }
     Recipes()
-    
   },[dispatch])
   
   const { pathname } = useLocation()

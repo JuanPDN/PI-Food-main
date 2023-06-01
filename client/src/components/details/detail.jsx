@@ -11,8 +11,8 @@ function Details() {
 
     const Recipes = async (id) => {
         try {
-            //const listRecipes = await axios.get(`http://localhost:3001/recipes/${id}`)
-            //setRecipe(listRecipes.data)
+            //const {data} = await axios.get(`http://localhost:3001/recipes/${id}`)
+            //setRecipe(data)
             setRecipe(detail)
         } catch (error) {
             throw new Error(error)
