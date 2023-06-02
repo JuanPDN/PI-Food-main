@@ -1,4 +1,4 @@
-import { ALL_RECIPES } from "./action-types"
+import { ALL_RECIPES, CHANGE_PAGE } from "./action-types"
 
 
 export const postRecipes = (data) => {
@@ -12,4 +12,11 @@ export const postRecipes = (data) => {
             throw new Error(error)
         }
     }
+}
+
+export const changePage = (value) => {
+    return ({
+        type:CHANGE_PAGE,
+        payload: value
+    })
 }

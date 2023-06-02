@@ -1,9 +1,15 @@
-import { useState } from "react";
+//import { useState } from "react";
+import {useDispatch, useSelector} from 'react-redux'
 import Card from "../card/card";
+import { changePage } from "../../redux/actions";
 
 function Cards(props) {
+    //const [currentPage, setCurrentPage] = useState(1);
+
+    const currentPage = useSelector((state)=> state.currentPage)
+    const dispatch = useDispatch()
+
     const recipes = props.recipe
-    const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 6;
     const totalPages = Math.ceil(recipes.length / itemsPerPage);
 
@@ -11,13 +17,14 @@ function Cards(props) {
     const startIndex = (currentPage - 1) * itemsPerPage
     const endIndex = startIndex + itemsPerPage
 
+
     const prevPage = () => {
-        setCurrentPage(currentPage - 1)
+        dispatch(changePage(-1))
     }
 
 
     const nextPage = () => {
-        setCurrentPage(currentPage + 1)
+        dispatch(changePage(1))
     }
 
     return (
