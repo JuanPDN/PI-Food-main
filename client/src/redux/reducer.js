@@ -1,9 +1,11 @@
-import { ALL_RECIPES, CHANGE_PAGE } from "./action-types";
+import { ALL_DIETS, ALL_RECIPES, CHANGE_PAGE } from "./action-types";
 
 const initialState = {
     recipes: [],
     allRecipes: [],
-    currentPage: 1
+    currentPage: 1,
+    diets: [],
+    allDiets: [],
 }
 
 export const rootReducer = (state = initialState, { type, payload }) => {
@@ -16,6 +18,11 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         case CHANGE_PAGE:
             return {
                 ...state, currentPage: state.currentPage + payload
+            }
+
+        case ALL_DIETS:
+            return {
+                ...state, diets: payload, allDiets: payload
             }
 
         default:

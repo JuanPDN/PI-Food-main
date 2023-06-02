@@ -8,7 +8,7 @@ import Details from './components/details/detail';
 import Cards from './components/cards/cards';
 import { data } from './data';
 import NavBar from './components/navBar/navBar';
-import { postRecipes } from './redux/actions';
+import { getDiets, postRecipes } from './redux/actions';
 import Form from './components/form/form';
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
         throw new Error(error)
       }
     }
+    dispatch(getDiets())
     Recipes()
   },[dispatch])
   
