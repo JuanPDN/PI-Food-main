@@ -53,6 +53,9 @@ function Form() {
         }
     }
 
+
+
+
     return (
         <div>
             <form>
@@ -62,7 +65,7 @@ function Form() {
                 <input name='name' type="text" onChange={handleChange} value={recipe.name} />
 
                 <label for='imageUpload'>Image</label>
-                <input type="file" name="imageUpload" accept="image/*" />
+                <input type="text" placeholder="URL de la imagen" name="imageUpload" onChange={handleChange} accept="image/*" />
 
                 <label for='summary'>Summary</label>
                 <textarea name="summary" id="summary" onChange={handleChange} cols="30" rows="10" value={recipe.summary}></textarea>

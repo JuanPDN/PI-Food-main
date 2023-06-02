@@ -16,7 +16,8 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
+      defaultValue: '../../imgs/imageDefault.jpg.avif'
     },
     summary: {
       type: DataTypes.STRING,
