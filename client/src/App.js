@@ -9,6 +9,7 @@ import Cards from './components/cards/cards';
 import { data } from './data';
 import NavBar from './components/navBar/navBar';
 import { postRecipes } from './redux/actions';
+import Form from './components/form/form';
 
 function App() {
 
@@ -33,12 +34,13 @@ function App() {
   return (
     <div className="App">
       <h1>Henry Food</h1>
-      {pathname !== '/' ? <NavBar /> : null}
+      <Form/>
+      {/* {pathname !== '/' ? <NavBar /> : null}
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='/home' element={<Cards recipe={recipes} />} />
         <Route path='/detail/:id' element={<Details />} />
-      </Routes>
+      </Routes> */}
     </div>
   );
 }
