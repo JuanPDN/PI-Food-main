@@ -1,5 +1,5 @@
 import { diets } from "../data"
-import { ALL_DIETS, ALL_RECIPES, CHANGE_PAGE, RECIPE_BY_NAME } from "./action-types"
+import { ALL_DIETS, ALL_RECIPES, CHANGE_PAGE, FILTER_ORIGIN, FILTER_RECIPES, ORDER, RECIPE_BY_NAME } from "./action-types"
 import axios from 'axios'
 
 
@@ -44,4 +44,25 @@ export const getRecipe = (nameRecipe) =>{
             throw new Error(error)
         }
     }
+}
+
+export const filterRecipes = (value) =>{
+    return({
+        type: FILTER_RECIPES,
+        payload: value
+    })
+}
+
+export const filterOrigin = (value) => {
+    return({
+        type: FILTER_ORIGIN,
+        payload: value
+    })
+}
+
+export const orderBy = (value) => {
+    return({
+        type: ORDER,
+        payload: value
+    })
 }
