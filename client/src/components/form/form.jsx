@@ -2,10 +2,6 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { validations } from "./validations";
 
-
-
-
-
 function Form({handleClick}) {
 
     const diets = useSelector((state) => state.diets)
