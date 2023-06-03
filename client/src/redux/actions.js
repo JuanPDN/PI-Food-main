@@ -1,6 +1,6 @@
 import { diets } from "../data"
-import { ALL_DIETS, ALL_RECIPES, CHANGE_PAGE } from "./action-types"
-//import axios from 'axios'
+import { ALL_DIETS, ALL_RECIPES, CHANGE_PAGE, RECIPE_BY_NAME } from "./action-types"
+import axios from 'axios'
 
 
 
@@ -25,6 +25,20 @@ export const getDiets = () => {
             return dispatch({
                 type: ALL_DIETS,
                 payload: diets //data
+            })
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+}
+
+export const getRecipe = (nameRecipe) =>{
+    return async(dispatch) => {
+        try {
+            const {data} = await axios.get(`http://localhost:3001/recipes?nameRecipe=${nameRecipe}`)
+            return dispatch({
+                type: RECIPE_BY_NAME,
+                payload: data
             })
         } catch (error) {
             throw new Error(error)
