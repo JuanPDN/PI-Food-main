@@ -1,7 +1,7 @@
 const errors = {
     empy: 'el campo no puede estar vacio, campo obligatorio',
     choseOne: 'debe seleccionar al menos una dieta',
-    score: 'el healt Score debe ser mayor a 0'
+    score: 'el healt Score debe ser mayor a 0',
 }
 
 

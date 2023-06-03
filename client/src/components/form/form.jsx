@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { validations } from "./validations";
 
 
 
@@ -31,10 +32,10 @@ function Form() {
             ...recipe,
             [event.target.name]: event.target.value
         })
-        setError({
+        setError(validations({
             ...recipe,
             [event.target.name]: event.target.value
-        })
+        }))
     }
 
     const handleCheckboxChange = (event) =>{
