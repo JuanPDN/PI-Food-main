@@ -6,7 +6,7 @@ import { validations } from "./validations";
 
 
 
-function Form() {
+function Form({handleClick}) {
 
     const diets = useSelector((state) => state.diets)
 
@@ -65,24 +65,25 @@ function Form() {
     return (
         <div>
             <form>
+                <button onClick={handleClick}>X</button>
                 <legend>Your recipe</legend>
 
-                <label for='name'>Name</label>
+                <label htmlFor='name'>Name</label>
                 <input name='name' type="text" onChange={handleChange} value={recipe.name} />
                 {error.name ? <p>{error.name}</p> : null}
 
-                <label for='imageUpload'>Image</label>
+                <label htmlFor='imageUpload'>Image</label>
                 <input type="text" placeholder="URL de la imagen" name="imageUpload" onChange={handleChange} accept="image/*" />
 
-                <label for='summary'>Summary</label>
+                <label htmlFor='summary'>Summary</label>
                 <textarea name="summary" id="summary" onChange={handleChange} cols="30" rows="10" value={recipe.summary}></textarea>
                 {error.summary ? <p>{error.summary}</p> : null}
 
-                <label for='healtScore'>healt Score</label>
+                <label htmlFor='healtScore'>healt Score</label>
                 <input name="healtScore" onChange={handleChange} type="number" min='0' value={recipe.healtScore} />
                 {error.score ? <p>{error.score}</p> : null}
 
-                <label for="stepToStep">Step to Step</label>
+                <label htmlFor="stepToStep">Step to Step</label>
                 <textarea name="stepToStep" onChange={handleChange} id="stepToStep" cols="30" rows="10" value={recipe.stepToStep}></textarea>
                 {error.stepToStep ? <p>{error.stepToStep}</p> : null}
 
@@ -90,7 +91,7 @@ function Form() {
                 <legend>Diets</legend>
                 {diets?.map(diet =>
                     <div key={diet.id}>
-                        <label for='diets'>{diet.name}</label>
+                        <label htmlFor='diets'>{diet.name}</label>
                         <input type="checkbox" name='diets' onChange={handleCheckboxChange} value={diet.name} />
                     </div>
                 )}
