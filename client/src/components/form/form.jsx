@@ -46,16 +46,21 @@ function Form() {
                 ...recipe,
                 diets:[...recipe.diets,diet]
             })
+            setError(validations({
+                ...recipe,
+                diets:[...recipe.diets,diet]
+            }))
         }else{
             setRecipe({
                 ...recipe,
                 diets:[...recipe.diets.filter((value)=> value !== diet)]
             })
+            setError(validations({
+                ...recipe,
+                diets:[...recipe.diets.filter((value)=> value !== diet)]
+            }))
         }
     }
-
-
-
 
     return (
         <div>

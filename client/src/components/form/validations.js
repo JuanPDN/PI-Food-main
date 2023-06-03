@@ -7,7 +7,8 @@ const errors = {
 
 export const validations = ({ name, summary, healtScore, stepToStep, diets }) => {
     const error = {}
-    if (name.length === 0 || summary.length === 0 || healtScore.length === 0 || stepToStep.length === 0 || diets.length === 0) {
+
+    if (name.length === 0 || summary.length === 0 || healtScore.length === 0 || stepToStep.length === 0) {
         error.long = errors.empy
     }
     if (diets.length <= 0) {
