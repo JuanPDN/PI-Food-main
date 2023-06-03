@@ -1,5 +1,5 @@
 import { diets } from "../data"
-import { ALL_DIETS, ALL_RECIPES, CHANGE_PAGE, FILTER_ORIGIN, FILTER_RECIPES, ORDER, RECIPE_BY_NAME } from "./action-types"
+import { ALL_DIETS, ALL_RECIPES, CHANGE_PAGE, FILTER_ORIGIN, FILTER_RECIPES, ORDER_BY_NAME, RECIPE_BY_NAME } from "./action-types"
 import axios from 'axios'
 
 
@@ -60,9 +60,9 @@ export const filterOrigin = (value) => {
     })
 }
 
-export const orderBy = (value) => {
+export const orderByName = (value) => {
     return({
-        type: ORDER,
+        type: ORDER_BY_NAME,
         payload: value
     })
 }

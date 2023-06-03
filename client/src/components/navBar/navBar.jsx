@@ -1,9 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../searchBar/searchBar";
-import { filterOrigin, filterRecipes, orderBy } from "../../redux/actions";
+import { filterOrigin, filterRecipes, orderByName } from "../../redux/actions";
+import { useState } from "react";
 
 
 function NavBar({ handleClick }) {
+
+    const [orderName, setOrderName] = useState(true)
+    const [orderScore, setOrderScore] = useState (true)
 
     const diets = useSelector((state) => state.allDiets)
     const dispatch = useDispatch()
@@ -18,9 +22,14 @@ function NavBar({ handleClick }) {
         dispatch(filterOrigin(origin))
     }
 
-    const handleOrder = (event) => {
-        const order = event.target.value
-        dispatch(orderBy(order))
+    const handleOrder = () => {
+        setOrderName(!orderName)
+        dispatch(orderByName(orderName))
+    }
+
+    const handleOrderScore = () => {
+        setOrderScore(!orderScore)
+        dispatch(orderByName(orderScore))
     }
 
     return (
@@ -32,17 +41,19 @@ function NavBar({ handleClick }) {
                     <option key={diet.id} value={diet.name}>{diet.name}</option>
                 )}
             </select>
+
             <select onChange={handleFilterOrigin} defaultValue='' name="origin" id="origin">
                 <option value='' disabled>--Origin--</option>
                 <option value="db">My Recipes</option>
                 <option value="api" >Recipes</option>
             </select>
-            <select onChange={handleOrder} defaultValue='' name="order" id="order">
-                <option value='' disabled >--order by--</option>
-                <option value="A">Ascendent</option>
-                <option value="D">Descendent</option>
-            </select>
+
+            <button onClick={handleOrder}>Order By Name</button>
+
+            <button onClick={handleOrderScore}>Order By Score</button>
+
             <SearchBar />
+
         </nav>
     );
 }
