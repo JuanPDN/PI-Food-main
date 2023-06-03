@@ -1,7 +1,7 @@
 import './App.css';
 import LandingPage from './components/landing/landingPage';
 import { Route, Routes, useLocation } from 'react-router-dom';
-//import axios from 'axios'
+import axios from 'axios'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import Details from './components/details/detail';
@@ -18,9 +18,18 @@ function App() {
   const [showForm, setShowForm] = useState(false)
 
 
-  const handleClick = (event) => {
-    event.preventDefault()
+  const handleClick = () => {
     setShowForm(!showForm)
+  }
+
+  const postRecipe = async ({ name, image, summary, healtScore, stepToStep, diet }) => {
+    try {
+      await axios.post('http://localhost:3001/recipes', { name, image, summary, healtScore, stepToStep, diet })
+      window.alert('Recipe created successfully')
+    } catch (error) {
+      console.error(error.message);
+      window.alert('Failed to create recipe');
+    }
   }
 
   useEffect(() => {
@@ -42,7 +51,7 @@ function App() {
   return (
     <div className="App">
       <h1>Henry Food</h1>
-      {showForm ? <Form handleClick={handleClick}/> : null}
+      {showForm ? <Form handleClick={handleClick} postRecipe={postRecipe} /> : null}
       {pathname !== '/' ? <NavBar handleClick={handleClick} /> : null}
       <Routes>
         <Route path='/' element={<LandingPage />} />

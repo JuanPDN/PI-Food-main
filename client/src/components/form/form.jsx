@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { validations } from "./validations";
 
-function Form({handleClick}) {
+function Form({ handleClick, postRecipe }) {
 
     const diets = useSelector((state) => state.diets)
 
@@ -12,7 +12,7 @@ function Form({handleClick}) {
         summary: '',
         healtScore: '',
         stepToStep: '',
-        diets: []
+        diet: []
     })
 
     const [error, setError] = useState({
@@ -20,7 +20,7 @@ function Form({handleClick}) {
         summary: '',
         healtScore: '',
         stepToStep: '',
-        diets: []
+        diet: []
     })
 
     const handleChange = (event) => {
@@ -35,27 +35,32 @@ function Form({handleClick}) {
     }
 
     const handleCheckboxChange = (event) => {
-        const diet = event.target.value
+        const diets = event.target.value
         const isChecked = event.target.checked
         if (isChecked) {
             setRecipe({
                 ...recipe,
-                diets: [...recipe.diets, diet]
+                diet: [...recipe.diet, diets]
             })
             setError(validations({
                 ...recipe,
-                diets: [...recipe.diets, diet]
+                diet: [...recipe.diet, diets]
             }))
         } else {
             setRecipe({
                 ...recipe,
-                diets: [...recipe.diets.filter((value) => value !== diet)]
+                diet: [...recipe.diet.filter((value) => value !== diets)]
             })
             setError(validations({
                 ...recipe,
-                diets: [...recipe.diets.filter((value) => value !== diet)]
+                diet: [...recipe.diet.filter((value) => value !== diets)]
             }))
         }
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        postRecipe(recipe)
     }
 
     return (
@@ -93,7 +98,7 @@ function Form({handleClick}) {
                 )}
                 {error.chose ? <p>{error.chose}</p> : null}
 
-                <button disabled={!Object.keys(error).length ? false : true} >Crear</button>
+                <button onClick={handleSubmit} disabled={!Object.keys(error).length ? false : true} >Crear</button>
 
 
             </form>
