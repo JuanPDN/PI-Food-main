@@ -37,6 +37,7 @@ function NavBar({ handleClick }) {
             <button onClick={handleClick}>Create recipe</button>
             <select onChange={handleFilterRecipes} defaultValue='' name="diets" id="diets">
                 <option value='' disabled>--Diets--</option>
+                <option value='all' >All recipes</option>
                 {diets?.map(diet =>
                     <option key={diet.id} value={diet.name}>{diet.name}</option>
                 )}
@@ -44,6 +45,7 @@ function NavBar({ handleClick }) {
 
             <select onChange={handleFilterOrigin} defaultValue='' name="origin" id="origin">
                 <option value='' disabled>--Origin--</option>
+                <option value='all' >All recipes</option>
                 <option value="db">My Recipes</option>
                 <option value="api" >Recipes</option>
             </select>

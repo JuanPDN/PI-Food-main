@@ -10,17 +10,17 @@ function Form({ handleClick, postRecipe }) {
         name: '',
         image: '',
         summary: '',
-        healtScore: '',
-        stepToStep: '',
+        healthScore: '',
+        stepToStep: [],
         diet: []
     })
 
     const [error, setError] = useState({
         name: '',
         summary: '',
-        healtScore: '',
+        healthScore: '',
         stepToStep: '',
-        diet: []
+        diet: [] 
     })
 
     const handleChange = (event) => {
@@ -35,25 +35,25 @@ function Form({ handleClick, postRecipe }) {
     }
 
     const handleCheckboxChange = (event) => {
-        const diets = event.target.value
+        const selectedDiets = event.target.value
         const isChecked = event.target.checked
         if (isChecked) {
             setRecipe({
                 ...recipe,
-                diet: [...recipe.diet, diets]
+                diet: [...recipe.diet, selectedDiets]
             })
             setError(validations({
                 ...recipe,
-                diet: [...recipe.diet, diets]
+                diet: [...recipe.diet, selectedDiets]
             }))
         } else {
             setRecipe({
                 ...recipe,
-                diet: [...recipe.diet.filter((value) => value !== diets)]
+                diet: [...recipe.diet.filter((value) => value !== selectedDiets)]
             })
             setError(validations({
                 ...recipe,
-                diet: [...recipe.diet.filter((value) => value !== diets)]
+                diet: [...recipe.diet.filter((value) => value !== selectedDiets)]
             }))
         }
     }
@@ -80,8 +80,8 @@ function Form({ handleClick, postRecipe }) {
                 <textarea name="summary" id="summary" onChange={handleChange} cols="30" rows="10" value={recipe.summary}></textarea>
                 {error.summary ? <p>{error.summary}</p> : null}
 
-                <label htmlFor='healtScore'>healt Score</label>
-                <input name="healtScore" onChange={handleChange} type="number" min='0' value={recipe.healtScore} />
+                <label htmlFor='healthScore'>health Score</label>
+                <input name="healthScore" onChange={handleChange} type="number" min='0' value={recipe.healthScore} />
                 {error.score ? <p>{error.score}</p> : null}
 
                 <label htmlFor="stepToStep">Step to Step</label>

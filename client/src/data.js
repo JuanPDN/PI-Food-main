@@ -1821,6 +1821,17 @@ const data =[
 			"lacto ovo vegetarian",
 			"vegan"
 		]
+	},
+	{
+		"id": "464930b8-0d92-4533-8ba0-989e6493016e",
+		"name": "pasta",
+		"image": "",
+		"summary": "pasta",
+		"healthScore": "2",
+		"stepToStep": "pasta",
+		"diets": [
+			"vegan"
+		]
 	}
 ]
 

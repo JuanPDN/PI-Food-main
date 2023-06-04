@@ -2,7 +2,7 @@ const { Recipe, Diets } = require('../db');
 require('dotenv').config()
 
 const postRecipe = async (req, res) => {
-    const { name, image, summary, healtScore, stepToStep, diet } = req.body
+    const { name, image, summary, healthScore, stepToStep, diet } = req.body
     if (!diet) {
         return res.status(500).send('es necesario incluir la dieta')
     }
@@ -19,7 +19,7 @@ const postRecipe = async (req, res) => {
             name,
             image,
             summary,
-            healtScore,
+            healthScore,
             stepToStep,
             diet,
             includes:{

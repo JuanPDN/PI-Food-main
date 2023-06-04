@@ -9,7 +9,9 @@ function Cards(props) {
     const currentPage = useSelector((state)=> state.currentPage)
     const dispatch = useDispatch()
 
+
     const recipes = props.recipe
+
     const itemsPerPage = 9;
     const totalPages = Math.ceil(recipes.length / itemsPerPage);
 

@@ -22,9 +22,9 @@ function App() {
     setShowForm(!showForm)
   }
 
-  const postRecipe = async ({ name, image, summary, healtScore, stepToStep, diet }) => {
+  const postRecipe = async ({ name, image, summary, healthScore, stepToStep, diet }) => {
     try {
-      await axios.post('http://localhost:3001/recipes', { name, image, summary, healtScore, stepToStep, diet })
+      await axios.post('http://localhost:3001/recipes', { name, image, summary, healthScore, stepToStep:[stepToStep], diet })
       window.alert('Recipe created successfully')
     } catch (error) {
       console.error(error.message);
