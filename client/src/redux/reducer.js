@@ -70,18 +70,18 @@ export const rootReducer = (state = initialState, { type, payload }) => {
                 })]
             }
 
-            case ORDER_BY_SCORE:
-                return {
-                    ...state, recipes: [...state.recipes.sort((a, b) => {
-                        if (a.healthScore > b.healthScore) {
-                            return payload ? 1 : -1
-                        }
-                        if (a.healthScore < b.healthScore) {
-                            return payload === false ? 1 : -1
-                        }
-                        return 0
-                    })]
-                }
+        case ORDER_BY_SCORE:
+            return {
+                ...state, recipes: [...state.recipes.sort((a, b) => {
+                    if (a.healthScore > b.healthScore) {
+                        return payload ? 1 : -1
+                    }
+                    if (a.healthScore < b.healthScore) {
+                        return payload === false ? 1 : -1
+                    }
+                    return 0
+                })]
+            }
 
         default:
             return { ...state }
