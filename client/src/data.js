@@ -1821,24 +1821,6 @@ const data =[
 			"lacto ovo vegetarian",
 			"vegan"
 		]
-	},
-	{
-		"id": "7ce05755-6c16-46b0-a597-db7a428de6fd",
-		"name": "pasta",
-		"image": "../../imgs/imageDefault.jpg.avif",
-		"summary": "pasta",
-		"healthScore": "2",
-		"stepToStep": [
-			"pasta"
-		],
-		"diets": [
-			{
-				"name": "gluten free"
-			},
-			{
-				"name": "vegan"
-			}
-		]
 	}
 ]
 

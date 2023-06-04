@@ -18,7 +18,7 @@ function Form({ handleClick, postRecipe }) {
         name: '',
         summary: '',
         healthScore: '',
-        stepToStep: '',
+        stepToStep: [],
         diets: [] 
     })
 

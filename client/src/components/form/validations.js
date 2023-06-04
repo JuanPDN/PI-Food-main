@@ -5,7 +5,7 @@ const errors = {
 }
 
 
-export const validations = ({ name, summary, healthScore, stepToStep, diet }) => {
+export const validations = ({ name, summary, healthScore, stepToStep, diets }) => {
     const error = {}
 
     if (name.length === 0) {
@@ -17,11 +17,11 @@ export const validations = ({ name, summary, healthScore, stepToStep, diet }) =>
     if (stepToStep.length === 0) {
         error.stepToStep = errors.empty
     }
-    if (diet.length <= 0) {
+    if (diets.length <= 0) {
         error.chose = errors.choseOne
     }
     if (healthScore <= 0) {
         error.score = errors.score
     }
-    return error
+ return error
 }

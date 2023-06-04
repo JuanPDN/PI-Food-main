@@ -17,7 +17,7 @@ module.exports = (sequelize) => {
     image: {
       type: DataTypes.STRING,
       allowNull: true,
-      defaultValue: '../../imgs/imageDefault.jpg.avif'
+      defaultValue: 'https://jappi.com.co/wp-content/uploads/2020/08/Clasificacion-de-los-alimentos-imagen-destacada.jpg'
     },
     summary: {
       type: DataTypes.STRING,

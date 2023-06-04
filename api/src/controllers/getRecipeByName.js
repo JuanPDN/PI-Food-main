@@ -20,7 +20,7 @@ const getRecipeByName = async (req, res) => {
             }
         })
 
-        const dbRecipes = await Recipe.findAll({
+        const db = await Recipe.findAll({
             include: {
                 model: Diets,
                 attributes: ['name'],
@@ -30,12 +30,24 @@ const getRecipeByName = async (req, res) => {
             }
         })
 
+        const dbRecipes = db.map(ele => {
+            const diets = ele.diets.map(diet => diet.name)
+            return {
+                id: ele.id,
+                name: ele.name,
+                image:ele.image,
+                summary: ele.summary,
+                healthScore: ele.healthScore,
+                stepToStep: ele.stepToStep,
+                diets: diets
+            }
+        })
         const allRecipes = dataRecipes.concat(dbRecipes)
         if (nameRecipe) {
             const filterRecipes = allRecipes.filter(e => e.name.toLowerCase().includes(nameRecipe.toLowerCase()))
             res.status(200).json(filterRecipes)
         } else {
-            res.status(200).json(allRecipes)
+        res.status(200).json(allRecipes)
         }
     }
     catch (error) {
