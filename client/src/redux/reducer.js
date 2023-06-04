@@ -53,7 +53,7 @@ export const rootReducer = (state = initialState, { type, payload }) => {
                 }
             } else {
                 return {
-                    ...state, recipes: [...state.recipes.filter((recipe) => typeof (recipe.id) === 'number')],
+                    ...state, recipes: [...state.allRecipes.filter((recipe) => typeof (recipe.id) === 'number')],
                     currentPage: 1
                 }
             }

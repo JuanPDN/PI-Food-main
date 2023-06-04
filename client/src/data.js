@@ -1,4 +1,4 @@
-const data =[
+const data = [
 	{
 		"id": 782585,
 		"name": "Cannellini Bean and Asparagus Salad with Mushrooms",
@@ -1816,11 +1816,19 @@ const data =[
 			}
 		],
 		"diets": [
-			"gluten free",
+			"gluten free",	
 			"dairy free",
 			"lacto ovo vegetarian",
 			"vegan"
 		]
+	},
+	{
+		"id": "69bf16b8-c18d-4b70-8486-53718993d87b",
+		"name": "pasta",
+		"summary": "pasta",
+		"healthScore": "2",
+		"stepToStep": ["pasta"],
+		"diets": ["vegan", "gluten free", "vegetarian"]
 	}
 ]
 
