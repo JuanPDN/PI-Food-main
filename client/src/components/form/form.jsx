@@ -4,7 +4,7 @@ import { validations } from "./validations";
 
 function Form({ handleClick, postRecipe }) {
 
-    const diets = useSelector((state) => state.diets)
+    const allDiets = useSelector((state) => state.diets)
 
     const [recipe, setRecipe] = useState({
         name: '',
@@ -12,7 +12,7 @@ function Form({ handleClick, postRecipe }) {
         summary: '',
         healthScore: '',
         stepToStep: [],
-        diet: []
+        diets: []
     })
 
     const [error, setError] = useState({
@@ -20,7 +20,7 @@ function Form({ handleClick, postRecipe }) {
         summary: '',
         healthScore: '',
         stepToStep: '',
-        diet: [] 
+        diets: [] 
     })
 
     const handleChange = (event) => {
@@ -40,20 +40,20 @@ function Form({ handleClick, postRecipe }) {
         if (isChecked) {
             setRecipe({
                 ...recipe,
-                diet: [...recipe.diet, selectedDiets]
+                diets: [...recipe.diets, selectedDiets]
             })
             setError(validations({
                 ...recipe,
-                diet: [...recipe.diet, selectedDiets]
+                diets: [...recipe.diets, selectedDiets]
             }))
         } else {
             setRecipe({
                 ...recipe,
-                diet: [...recipe.diet.filter((value) => value !== selectedDiets)]
+                diets: [...recipe.diets.filter((value) => value !== selectedDiets)]
             })
             setError(validations({
                 ...recipe,
-                diet: [...recipe.diet.filter((value) => value !== selectedDiets)]
+                diets: [...recipe.diets.filter((value) => value !== selectedDiets)]
             }))
         }
     }
@@ -90,7 +90,7 @@ function Form({ handleClick, postRecipe }) {
 
 
                 <legend>Diets</legend>
-                {diets?.map(diet =>
+                {allDiets?.map(diet =>
                     <div key={diet.id}>
                         <label htmlFor='diets'>{diet.name}</label>
                         <input type="checkbox" name='diets' onChange={handleCheckboxChange} value={diet.name} />
