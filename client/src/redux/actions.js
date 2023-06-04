@@ -1,14 +1,21 @@
-import { diets } from "../data"
-import { ALL_DIETS, ALL_RECIPES, CHANGE_PAGE, FILTER_ORIGIN, FILTER_RECIPES, ORDER_BY_NAME, RECIPE_BY_NAME } from "./action-types"
+import { diets, data } from "../data"
+import { ALL_DIETS, ALL_RECIPES, CHANGE_PAGE, FILTER_ORIGIN, FILTER_RECIPES, ORDER_BY_NAME, ORDER_BY_SCORE, RECIPE_BY_NAME } from "./action-types"
 import axios from 'axios'
 
 
 
-export const postRecipes = (data) => {
-    return ({
-        type: ALL_RECIPES,
-        payload: data
-    })
+export const getRecipes = () => {
+    return async (dispatch) => {
+        try {
+            //const { data } = await axios.get('http://localhost:3001/recipes')
+            return dispatch({
+                type: ALL_RECIPES,
+                payload: data
+            })
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
 }
 
 export const changePage = (value) => {
@@ -32,10 +39,10 @@ export const getDiets = () => {
     }
 }
 
-export const getRecipe = (nameRecipe) =>{
-    return async(dispatch) => {
+export const getRecipeByName = (nameRecipe) => {
+    return async (dispatch) => {
         try {
-            const {data} = await axios.get(`http://localhost:3001/recipes?nameRecipe=${nameRecipe}`)
+            const { data } = await axios.get(`http://localhost:3001/recipes?nameRecipe=${nameRecipe}`)
             return dispatch({
                 type: RECIPE_BY_NAME,
                 payload: data
@@ -46,23 +53,30 @@ export const getRecipe = (nameRecipe) =>{
     }
 }
 
-export const filterRecipes = (value) =>{
-    return({
+export const filterRecipes = (value) => {
+    return ({
         type: FILTER_RECIPES,
         payload: value
     })
 }
 
 export const filterOrigin = (value) => {
-    return({
+    return ({
         type: FILTER_ORIGIN,
         payload: value
     })
 }
 
 export const orderByName = (value) => {
-    return({
+    return ({
         type: ORDER_BY_NAME,
+        payload: value
+    })
+}
+
+export const orderByScore = (value) => {
+    return ({
+        type: ORDER_BY_SCORE,
         payload: value
     })
 }

@@ -6,9 +6,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import Details from './components/details/detail';
 import Cards from './components/cards/cards';
-import { data } from './data';
 import NavBar from './components/navBar/navBar';
-import { getDiets, postRecipes } from './redux/actions';
+import { getDiets, getRecipes } from './redux/actions';
 import Form from './components/form/form';
 
 function App() {
@@ -33,17 +32,8 @@ function App() {
   }
 
   useEffect(() => {
-    const Recipes = async () => {
-      try {
-        //const {data} = await axios.get('http://localhost:3001/recipes')
-        dispatch(postRecipes(data))
-
-      } catch (error) {
-        throw new Error(error)
-      }
-    }
+    dispatch(getRecipes())
     dispatch(getDiets())
-    Recipes()
   }, [dispatch])
 
   const { pathname } = useLocation()

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../searchBar/searchBar";
-import { filterOrigin, filterRecipes, orderByName } from "../../redux/actions";
+import { filterOrigin, filterRecipes, orderByName, orderByScore } from "../../redux/actions";
 import { useState } from "react";
 
 
@@ -29,7 +29,7 @@ function NavBar({ handleClick }) {
 
     const handleOrderScore = () => {
         setOrderScore(!orderScore)
-        dispatch(orderByName(orderScore))
+        dispatch(orderByScore(orderScore))
     }
 
     return (

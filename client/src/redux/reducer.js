@@ -1,4 +1,4 @@
-import { ALL_DIETS, ALL_RECIPES, CHANGE_PAGE, FILTER_ORIGIN, FILTER_RECIPES, RECIPE_BY_NAME } from "./action-types";
+import { ALL_DIETS, ALL_RECIPES, CHANGE_PAGE, FILTER_ORIGIN, FILTER_RECIPES, ORDER_BY_NAME, ORDER_BY_SCORE, RECIPE_BY_NAME } from "./action-types";
 
 const initialState = {
     recipes: [],
@@ -29,7 +29,7 @@ export const rootReducer = (state = initialState, { type, payload }) => {
 
         case RECIPE_BY_NAME:
             return {
-                ...state, recipes: payload
+                ...state, recipes: [payload], currentPage: 1
             }
         case FILTER_RECIPES:
             if (payload === 'all') {
@@ -48,13 +48,40 @@ export const rootReducer = (state = initialState, { type, payload }) => {
                 }
             } else if (payload === 'db') {
                 return {
-                    ...state, recipes: [...state.recipes.filter((recipe) => typeof (recipe.id) !== 'number')]
+                    ...state, recipes: [...state.recipes.filter((recipe) => typeof (recipe.id) !== 'number')],
+                    currentPage: 1
                 }
             } else {
                 return {
-                    ...state, recipes: [...state.recipes.filter((recipe) => typeof (recipe.id) === 'number')]
+                    ...state, recipes: [...state.recipes.filter((recipe) => typeof (recipe.id) === 'number')],
+                    currentPage: 1
                 }
             }
+        case ORDER_BY_NAME:
+            return {
+                ...state, recipes: [...state.recipes.sort((a, b) => {
+                    if (a.name > b.name) {
+                        return payload ? 1 : -1
+                    }
+                    if (a.name < b.name) {
+                        return payload === false ? 1 : -1
+                    }
+                    return 0
+                })]
+            }
+
+            case ORDER_BY_SCORE:
+                return {
+                    ...state, recipes: [...state.recipes.sort((a, b) => {
+                        if (a.healthScore > b.healthScore) {
+                            return payload ? 1 : -1
+                        }
+                        if (a.healthScore < b.healthScore) {
+                            return payload === false ? 1 : -1
+                        }
+                        return 0
+                    })]
+                }
 
         default:
             return { ...state }

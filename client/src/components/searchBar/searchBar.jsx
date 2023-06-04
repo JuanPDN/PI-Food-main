@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getRecipe } from "../../redux/actions";
+import { getRecipeByName } from "../../redux/actions";
 
 function SearchBar() {
 
@@ -16,13 +16,13 @@ function SearchBar() {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        dispatch(getRecipe(nameRecipe))
+        dispatch(getRecipeByName(nameRecipe))
     }
 
     const handleEnter = (event)=>{
         event.preventDefault()
         if(event.keyCode === 13){
-            dispatch(getRecipe(nameRecipe)) 
+            dispatch(getRecipeByName(nameRecipe)) 
         }
     }
 

@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { validations } from "./validations";
+import { getRecipes } from "../../redux/actions";
 
 function Form({ handleClick, postRecipe }) {
 
     const allDiets = useSelector((state) => state.diets)
+    const dispatch = useDispatch()
 
     const [recipe, setRecipe] = useState({
         name: '',
@@ -19,7 +21,7 @@ function Form({ handleClick, postRecipe }) {
         summary: '',
         healthScore: '',
         stepToStep: [],
-        diets: [] 
+        diets: []
     })
 
     const handleChange = (event) => {
@@ -60,6 +62,21 @@ function Form({ handleClick, postRecipe }) {
     const handleSubmit = (event) => {
         event.preventDefault()
         postRecipe(recipe)
+        setRecipe({
+            name: '',
+            summary: '',
+            healthScore: '',
+            stepToStep: [],
+            diets: []
+        })
+        setError({
+            name: '',
+            summary: '',
+            healthScore: '',
+            stepToStep: [],
+            diets: []
+        })
+        dispatch(getRecipes())
     }
 
     return (
