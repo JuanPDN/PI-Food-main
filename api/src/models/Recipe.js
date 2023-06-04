@@ -30,9 +30,6 @@ module.exports = (sequelize) => {
     stepToStep: {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: true
-    },
-    diet:{
-      type: DataTypes.ARRAY(DataTypes.STRING)
     }
   },{ timestamps: false });
 };

@@ -22,15 +22,19 @@ const getRecipeByName = async (req, res) => {
 
         const dbRecipes = await Recipe.findAll({
             include: {
-                model: Diets
+                model: Diets,
+                attributes: ['name'],
+                through: {
+                    attributes: []
+                }
             }
         })
 
         const allRecipes = dataRecipes.concat(dbRecipes)
-        if(nameRecipe){
+        if (nameRecipe) {
             const filterRecipes = allRecipes.filter(e => e.name.toLowerCase().includes(nameRecipe.toLowerCase()))
             res.status(200).json(filterRecipes)
-        }else{
+        } else {
             res.status(200).json(allRecipes)
         }
     }
