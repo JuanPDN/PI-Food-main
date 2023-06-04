@@ -8,7 +8,6 @@ function Form({ handleClick, postRecipe }) {
 
     const [recipe, setRecipe] = useState({
         name: '',
-        image: '',
         summary: '',
         healthScore: '',
         stepToStep: [],

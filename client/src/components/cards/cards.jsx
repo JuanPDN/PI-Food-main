@@ -1,12 +1,10 @@
-//import { useState } from "react";
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Card from "../card/card";
 import { changePage } from "../../redux/actions";
 
 function Cards(props) {
-    //const [currentPage, setCurrentPage] = useState(1);
 
-    const currentPage = useSelector((state)=> state.currentPage)
+    const currentPage = useSelector((state) => state.currentPage)
     const dispatch = useDispatch()
 
 
@@ -28,6 +26,7 @@ function Cards(props) {
     const nextPage = () => {
         dispatch(changePage(1))
     }
+
 
     return (
         <div>

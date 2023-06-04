@@ -1823,14 +1823,21 @@ const data =[
 		]
 	},
 	{
-		"id": "464930b8-0d92-4533-8ba0-989e6493016e",
+		"id": "7ce05755-6c16-46b0-a597-db7a428de6fd",
 		"name": "pasta",
-		"image": "",
+		"image": "../../imgs/imageDefault.jpg.avif",
 		"summary": "pasta",
 		"healthScore": "2",
-		"stepToStep": "pasta",
+		"stepToStep": [
+			"pasta"
+		],
 		"diets": [
-			"vegan"
+			{
+				"name": "gluten free"
+			},
+			{
+				"name": "vegan"
+			}
 		]
 	}
 ]
