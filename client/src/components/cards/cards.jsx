@@ -1,3 +1,4 @@
+import styles from './cards.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import Card from "../card/card";
 import { changePage } from "../../redux/actions";
@@ -29,7 +30,7 @@ function Cards(props) {
 
 
     return (
-        <div>
+        <div className={styles['card-container']}>
             {
                 recipes.slice(startIndex, endIndex).map((recipe) =>
                     <Card
@@ -41,8 +42,10 @@ function Cards(props) {
                     />
                 )
             }
-            <button onClick={prevPage} disabled={currentPage === 1}>Prev</button>{currentPage} de {totalPages}
-            <button onClick={nextPage} disabled={currentPage === totalPages}>Next</button>
+            <div className={styles.paginado}>
+                <button className={styles['btn-green']} onClick={prevPage} disabled={currentPage === 1}>Prev</button>{currentPage} de {totalPages}
+                <button className={styles['btn-green']} onClick={nextPage} disabled={currentPage === totalPages}>Next</button>
+            </div>
         </div>
     );
 }

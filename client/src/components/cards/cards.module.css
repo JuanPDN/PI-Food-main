@@ -1,0 +1,28 @@
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 350px);
+    justify-content:space-around;
+}
+
+.paginado {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-green {
+    border: none;
+    background-color: rgb(50, 143, 38);
+    font-family: 'DM Sans', sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: all .4s ease-in-out;
+    margin: 1rem;
+}
+
+.btn-green:hover {
+    scale: 1.07;
+}
