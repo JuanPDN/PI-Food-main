@@ -1,3 +1,4 @@
+import style from './detail.module.css'
 //import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
@@ -26,9 +27,9 @@ function Details() {
     const { name, image, summary, healthScore, stepToStep, diets } = recipe
 
     return (
-        <div key={id}>
+        <div className={style['bg-detail']} key={id}>
             <Link to='/home'>
-            <button>Back</button>
+            <button className={style['btn-back']}>Back</button>
             </Link>
             <p>ID: {id}</p>
             <h2>{name}</h2>
