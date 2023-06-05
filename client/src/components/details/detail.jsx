@@ -28,7 +28,7 @@ function Details() {
     return (
         <div key={id}>
             <Link to='/home'>
-            <button>Home</button>
+            <button>Back</button>
             </Link>
             <p>ID: {id}</p>
             <h2>{name}</h2>

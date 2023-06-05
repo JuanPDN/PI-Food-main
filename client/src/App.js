@@ -43,7 +43,6 @@ function App() {
       {showForm ? <Form handleClick={handleClick} postRecipe={postRecipe} /> : null}
       {pathname !== '/' ? <NavBar handleClick={handleClick} /> : null}
       {pathname !== '/' ? <h1>Henry Food</h1> : null}
-      
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='/home' element={<Cards recipe={recipes} />} />

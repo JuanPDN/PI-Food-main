@@ -1,0 +1,71 @@
+.bg-form {
+    position:fixed;
+    z-index: 3;
+    height: 150vh;
+    width: 100vw;
+    top: 0px;
+    background-color: rgba(255, 252, 252, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-image: url('../../imgs/bg-form.jpg');
+    background-size: contain;
+    padding: 3rem 10rem;
+    border-radius: 10px;
+    align-items: center;
+    color: rgb(255, 255, 255);
+}
+
+.error {
+    color: rgb(255, 0, 0);
+    font-size: 12px;
+}
+
+.bg-form input {
+    border-radius: 10px;
+    padding: 5px;
+    width: 100%;
+    margin: 10px;
+}
+
+.bg-form textarea {
+    width: 100%;
+    border-radius: 10px;
+}
+
+input[type='checkbox'] {
+    width: auto;
+    margin: 5px 0px;
+}
+
+.btn-red {
+    background-color: red;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.btn-submit{
+    margin-top: 20px;
+    background-color: yellow;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 80px;
+    color: rgb(0, 0, 0);
+    transition: all .4s ease;
+}
+.btn-submit:hover {
+    scale: 1.07;
+}
+
+.btn-submit:disabled {
+    background-color: rgb(232, 232, 232);
+    color: gray;
+}

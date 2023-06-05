@@ -1,3 +1,4 @@
+import style from './form.module.css'
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { validations } from "./validations";
@@ -80,41 +81,43 @@ function Form({ handleClick, postRecipe }) {
     }
 
     return (
-        <div>
+        <div className={style['bg-form']}>
             <form>
-                <button onClick={handleClick}>X</button>
-                <legend>Your recipe</legend>
+                <button className={style['btn-red']} onClick={handleClick}>X</button>
+                
 
-                <label htmlFor='name'>Name</label>
-                <input name='name' type="text" onChange={handleChange} value={recipe.name} />
-                {error.name ? <p>{error.name}</p> : null}
+                    <legend>Your recipe</legend>
 
-                <label htmlFor='imageUpload'>Image</label>
-                <input type="text" placeholder="URL de la imagen" name="imageUpload" onChange={handleChange} accept="image/*" />
+                    <label htmlFor='name'>Name recipe</label>
+                    <input name='name' placeholder='Name recipe' type="text" onChange={handleChange} value={recipe.name} />
+                    {error.name ? <p className={style.error}>{error.name}</p> : null}
 
-                <label htmlFor='summary'>Summary</label>
-                <textarea name="summary" id="summary" onChange={handleChange} cols="30" rows="10" value={recipe.summary}></textarea>
-                {error.summary ? <p>{error.summary}</p> : null}
+                    <label htmlFor='imageUpload'>Image</label>
+                    <input type="text" placeholder="URL de la imagen" name="imageUpload" onChange={handleChange} accept="image/*" />
 
-                <label htmlFor='healthScore'>health Score</label>
-                <input name="healthScore" onChange={handleChange} type="number" min='0' value={recipe.healthScore} />
-                {error.score ? <p>{error.score}</p> : null}
+                    <label htmlFor='summary'>Summary</label>
+                    <textarea name="summary" placeholder='summary' id="summary" onChange={handleChange} cols="30" rows="10" value={recipe.summary}></textarea>
+                    {error.summary ? <p className={style.error}>{error.summary}</p> : null}
 
-                <label htmlFor="stepToStep">Step to Step</label>
-                <textarea name="stepToStep" onChange={handleChange} id="stepToStep" cols="30" rows="10" value={recipe.stepToStep}></textarea>
-                {error.stepToStep ? <p>{error.stepToStep}</p> : null}
+                    <label htmlFor='healthScore'>health Score</label>
+                    <input name="healthScore" onChange={handleChange} type="number" min='0' value={recipe.healthScore} />
+                    {error.score ? <p className={style.error}>{error.score}</p> : null}
+
+                    <label htmlFor="stepToStep">Step to Step</label>
+                    <textarea name="stepToStep" onChange={handleChange} id="stepToStep" cols="30" rows="10" value={recipe.stepToStep}></textarea>
+                    {error.stepToStep ? <p className={style.error}>{error.stepToStep}</p> : null}
 
 
-                <legend>Diets</legend>
-                {allDiets?.map(diet =>
-                    <div key={diet.id}>
-                        <label htmlFor='diets'>{diet.name}</label>
-                        <input type="checkbox" name='diets' onChange={handleCheckboxChange} value={diet.name} />
-                    </div>
-                )}
-                {error.chose ? <p>{error.chose}</p> : null}
+                    <legend>Diets</legend>
+                    {allDiets?.map(diet =>
+                        <div key={diet.id}>
+                            <label htmlFor='diets'>{diet.name}</label>
+                            <input className={style.error} type="checkbox" name='diets' onChange={handleCheckboxChange} value={diet.name} />
+                        </div>
+                    )}
+                    {error.chose ? <p >{error.chose}</p> : null}
 
-                <button onClick={handleSubmit} disabled={!Object.keys(error).length ? false : true} >Crear</button>
+                <button className={style['btn-submit']} onClick={handleSubmit} disabled={!Object.keys(error).length ? false : true} >Crear</button>
 
 
             </form>
