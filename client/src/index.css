@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('./imgs/bg-body.jpg.avif');
+  background-size: contain;
 }
 
 code {
