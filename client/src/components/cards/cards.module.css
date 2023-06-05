@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+
 .card-container {
     padding-top: 20px;
     display: grid;
@@ -15,7 +17,7 @@
 .btn-green {
     border: none;
     background-color: rgb(50, 143, 38);
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Shrikhand', cursive;
     color: rgb(255, 255, 255);
     font-weight: 700;
     padding: 0.5rem;
@@ -27,3 +29,4 @@
 .btn-green:hover {
     scale: 1.07;
 }
+

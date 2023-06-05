@@ -43,7 +43,7 @@ function Cards(props) {
                 )
             }
             <div className={styles.paginado}>
-                <button className={styles['btn-green']} onClick={prevPage} disabled={currentPage === 1}>Prev</button>{currentPage} de {totalPages}
+                <button className={styles['btn-green']} onClick={prevPage} disabled={currentPage === 1}>Prev</button><span>{currentPage} de {totalPages}</span>
                 <button className={styles['btn-green']} onClick={nextPage} disabled={currentPage === totalPages}>Next</button>
             </div>
         </div>

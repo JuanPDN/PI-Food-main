@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-image: url('./imgs/bg-body.jpg.avif');
   background-size: contain;
+  padding-top: 3em;
 }
 
 code {

@@ -45,3 +45,9 @@ h2 {
     color: rgb(158 116 45);
     line-height: 2rem;
 }
+
+span {
+    font-family: 'Shrikhand', cursive;
+    color: rgb(66, 11, 32);
+    font-size: 25px;
+}
