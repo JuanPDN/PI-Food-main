@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+nav {
+    background-color: rgba(143, 38, 38, 1);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1rem auto;
+}
+
+.btn-green {
+    border: none;
+    background-color: rgb(50, 143, 38);
+    font-family: 'DM Sans', sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: all .4s ease-in-out;
+}
+
+.btn-green:hover {
+    scale: 1.07;
+}

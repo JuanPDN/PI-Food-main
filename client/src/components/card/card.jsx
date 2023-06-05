@@ -1,3 +1,4 @@
+import styles from './card.module.css'
 import { Link } from "react-router-dom";
 
 function Card(props) {
@@ -6,7 +7,7 @@ function Card(props) {
 
     return (
         <Link to={`/detail/${id}`}>
-            <div>
+            <div className={styles.card}>
                 <img src={image} alt={name} />
                 <h2>{name}</h2>
                 <ul>

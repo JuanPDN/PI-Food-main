@@ -1824,6 +1824,7 @@ const data = [
 	},
 	{
 		"id": "69bf16b8-c18d-4b70-8486-53718993d87b",
+		"image":"https://jappi.com.co/wp-content/uploads/2020/08/Clasificacion-de-los-alimentos-imagen-destacada.jpg",
 		"name": "pasta",
 		"summary": "pasta",
 		"healthScore": "2",

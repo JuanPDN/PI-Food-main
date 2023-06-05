@@ -1,3 +1,4 @@
+import styles from './navBar.module.css'
 import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../searchBar/searchBar";
 import { filterOrigin, filterRecipes, orderByName, orderByScore } from "../../redux/actions";
@@ -7,7 +8,7 @@ import { useState } from "react";
 function NavBar({ handleClick }) {
 
     const [orderName, setOrderName] = useState(true)
-    const [orderScore, setOrderScore] = useState (true)
+    const [orderScore, setOrderScore] = useState(true)
 
     const diets = useSelector((state) => state.allDiets)
     const dispatch = useDispatch()
@@ -34,7 +35,8 @@ function NavBar({ handleClick }) {
 
     return (
         <nav>
-            <button onClick={handleClick}>Create recipe</button>
+            <SearchBar />
+
             <select onChange={handleFilterRecipes} defaultValue='' name="diets" id="diets">
                 <option value='' disabled>--Diets--</option>
                 <option value='all' >All recipes</option>
@@ -50,12 +52,11 @@ function NavBar({ handleClick }) {
                 <option value="api" >Recipes</option>
             </select>
 
-            <button onClick={handleOrder}>Order By Name</button>
+            <button className={styles['btn-green']} onClick={handleOrder}>Order By Name</button>
 
-            <button onClick={handleOrderScore}>Order By Score</button>
+            <button className={styles['btn-green']} onClick={handleOrderScore}>Order By Score</button>
 
-            <SearchBar />
-
+            <button className={styles['btn-green']} onClick={handleClick}>Create recipe</button>
         </nav>
     );
 }
