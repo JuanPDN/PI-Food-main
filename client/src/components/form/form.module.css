@@ -1,5 +1,5 @@
 .bg-form {
-    position:fixed;
+    position: sticky;
     z-index: 3;
     height: 150vh;
     width: 100vw;
@@ -15,10 +15,16 @@ form {
     flex-direction: column;
     background-image: url('../../imgs/bg-form.jpg');
     background-size: contain;
-    padding: 3rem 10rem;
+    padding: 3rem 5rem;
     border-radius: 10px;
     align-items: center;
     color: rgb(255, 255, 255);
+}
+
+@media (min-width: 768px) {
+    form {
+        padding: 3rem 10rem;
+    }
 }
 
 .error {
