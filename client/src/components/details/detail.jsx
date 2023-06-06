@@ -40,7 +40,7 @@ function Details() {
                 stepToStep?.map((steps) => {
                     return (
                         <div>
-                            <h3>Satep: {steps.number}</h3>
+                            <h3>Step: {steps.number}</h3>
                             <p>{steps.step}</p>
                         </div>
                     )

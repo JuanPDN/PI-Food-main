@@ -23,7 +23,7 @@ function App() {
 
   const postRecipe = async ({ name, image, summary, healthScore, stepToStep, diets }) => {
     try {
-      await axios.post('/recipes', { name, image, summary, healthScore, stepToStep:[stepToStep], diets })
+      await axios.post('/recipes', { name, image, summary, healthScore, stepToStep:[{number: 1, step: stepToStep}], diets })
       window.alert('Recipe created successfully')
     } catch (error) {
       console.error(error.message);
