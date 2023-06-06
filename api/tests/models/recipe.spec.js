@@ -15,7 +15,14 @@ describe('Recipe model', () => {
           .catch(() => done());
       });
       it('should work when its a valid name', () => {
-        Recipe.create({ name: 'Milanesa a la napolitana' });
+        Recipe.create({
+          name: "pasta",
+          image: "https://jappi.com.co/wp-content/uploads/2020/08/Clasificacion-de-los-alimentos-imagen-destacada.jpg",
+          summary: "pasta",
+          healthScore: "2",
+          stepToStep: ["pasta"],
+          diets: ["vegan", "gluten free", "vegetarian"]
+        });
       });
     });
   });

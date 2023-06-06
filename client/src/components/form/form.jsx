@@ -93,7 +93,7 @@ function Form({ handleClick, postRecipe }) {
                     {error.name ? <p className={style.error}>{error.name}</p> : null}
 
                     <label htmlFor='imageUpload'>Image</label>
-                    <input type="text" placeholder="URL de la imagen" name="imageUpload" onChange={handleChange} accept="image/*" />
+                    <input type="text" placeholder="URL de la imagen" name="image" onChange={handleChange} accept="image/*" />
 
                     <label htmlFor='summary'>Summary</label>
                     <textarea name="summary" placeholder='summary' id="summary" onChange={handleChange} cols="30" rows="10" value={recipe.summary}></textarea>

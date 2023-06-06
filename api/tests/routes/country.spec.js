@@ -6,7 +6,12 @@ const { Recipe, conn } = require('../../src/db.js');
 
 const agent = session(app);
 const recipe = {
-  name: 'Milanea a la napolitana',
+  name: "pasta",
+  image: "https://jappi.com.co/wp-content/uploads/2020/08/Clasificacion-de-los-alimentos-imagen-destacada.jpg",
+  summary: "pasta",
+  healthScore: "2",
+  stepToStep: ["pasta"],
+  diets: ["vegan", "gluten free", "vegetarian"]
 };
 
 describe('Recipe routes', () => {
