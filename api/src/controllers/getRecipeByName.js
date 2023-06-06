@@ -7,7 +7,7 @@ const getRecipeByName = async (req, res) => {
     const { nameRecipe } = req.query
 
     try {
-        const { data } = await axios(`https://api.spoonacular.com/recipes/complexSearch?number=10&apiKey=${API_KEY}&addRecipeInformation=true`)
+        const { data } = await axios(`https://api.spoonacular.com/recipes/complexSearch?number=100&apiKey=${API_KEY}&addRecipeInformation=true`)
         const dataRecipes = data.results.map(element => {
             return {
                 id: element.id,
