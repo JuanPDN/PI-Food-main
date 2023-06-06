@@ -1,4 +1,4 @@
-import { diets, data } from "../data"
+//import { diets, data } from "../data"
 import { ALL_DIETS, ALL_RECIPES, CHANGE_PAGE, FILTER_ORIGIN, FILTER_RECIPES, ORDER_BY_NAME, ORDER_BY_SCORE, RECIPE_BY_NAME } from "./action-types"
 import axios from 'axios'
 
@@ -7,7 +7,7 @@ import axios from 'axios'
 export const getRecipes = () => {
     return async (dispatch) => {
         try {
-            //const { data } = await axios.get('/recipes')
+            const { data } = await axios.get('/recipes')
             return dispatch({
                 type: ALL_RECIPES,
                 payload: data
@@ -28,10 +28,10 @@ export const changePage = (value) => {
 export const getDiets = () => {
     return async (dispatch) => {
         try {
-            //const { data } = await axios.get('/diet')
+            const { data } = await axios.get('/diet')
             return dispatch({
                 type: ALL_DIETS,
-                payload: diets //data
+                payload: data //diets 
             })
         } catch (error) {
             throw new Error(error)

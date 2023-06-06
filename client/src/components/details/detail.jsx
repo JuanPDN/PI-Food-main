@@ -1,8 +1,8 @@
 import style from './detail.module.css'
-//import axios from 'axios';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { detail } from '../../data';
+//import { detail } from '../../data';
 
 
 function Details() {
@@ -12,9 +12,9 @@ function Details() {
 
     const Recipes = async (id) => {
         try {
-            //const {data} = await axios.get(`/recipes/${id}`)
-            //setRecipe(data)
-            setRecipe(detail)
+            const {data} = await axios.get(`/recipes/${id}`)
+            setRecipe(data)
+            //setRecipe(detail)
         } catch (error) {
             throw new Error(error)
         }
