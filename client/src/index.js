@@ -8,7 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
 import store from './redux/store';
 
-axios.defaults.baseURL = 'pi-food-main-production-ddb6.up.railway.app'
+axios.defaults.baseURL =  'https://pi-food-main-production-ddb6.up.railway.app'//'http://localhost:3001'
 
 ReactDOM.render(
   <Provider store={store}>

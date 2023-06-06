@@ -8,7 +8,7 @@
     width: 100vw;
 }
 
-.bg-black{
+.bg-landing .bg-black{
     display: flex;
     background-color: rgba(0, 0, 0, 0.5);
     height: 100vh;
@@ -20,10 +20,16 @@
     font-size: 1.6rem;
     line-height: 4rem;
 }
+.title-app {
+    font-family: 'Shrikhand', cursive;
+    font-size: 3rem;
+    color: rgb(255, 255, 255);
+}
+
 h1 {
     font-family: 'Shrikhand', cursive;
     font-size: 3rem;
-    color: rgb(90, 6, 6);
+    color: rgb(80, 30, 30);
 }
 .btn-yellow {
     font-size: 1.3rem;
