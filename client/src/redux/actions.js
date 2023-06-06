@@ -7,7 +7,7 @@ import axios from 'axios'
 export const getRecipes = () => {
     return async (dispatch) => {
         try {
-            //const { data } = await axios.get('http://localhost:3001/recipes')
+            //const { data } = await axios.get('/recipes')
             return dispatch({
                 type: ALL_RECIPES,
                 payload: data
@@ -28,7 +28,7 @@ export const changePage = (value) => {
 export const getDiets = () => {
     return async (dispatch) => {
         try {
-            //const { data } = await axios.get('http://localhost:3001/diet')
+            //const { data } = await axios.get('/diet')
             return dispatch({
                 type: ALL_DIETS,
                 payload: diets //data
@@ -42,7 +42,7 @@ export const getDiets = () => {
 export const getRecipeByName = (nameRecipe) => {
     return async (dispatch) => {
         try {
-            const { data } = await axios.get(`http://localhost:3001/recipes?nameRecipe=${nameRecipe}`)
+            const { data } = await axios.get(`/recipes?nameRecipe=${nameRecipe}`)
             return dispatch({
                 type: RECIPE_BY_NAME,
                 payload: data

@@ -12,7 +12,7 @@ function Details() {
 
     const Recipes = async (id) => {
         try {
-            //const {data} = await axios.get(`http://localhost:3001/recipes/${id}`)
+            //const {data} = await axios.get(`/recipes/${id}`)
             //setRecipe(data)
             setRecipe(detail)
         } catch (error) {
