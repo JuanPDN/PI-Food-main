@@ -29,7 +29,7 @@ export const rootReducer = (state = initialState, { type, payload }) => {
 
         case RECIPE_BY_NAME:
             return {
-                ...state, recipes: [payload], currentPage: 1
+                ...state, recipes: payload, currentPage: 1
             }
         case FILTER_RECIPES:
             if (payload === 'all') {
