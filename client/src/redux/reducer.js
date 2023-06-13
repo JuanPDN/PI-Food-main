@@ -34,11 +34,13 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         case FILTER_RECIPES:
             if (payload === 'all') {
                 return {
-                    ...state, recipes: state.allRecipes
+                    ...state, recipes: state.allRecipes,
+                    currentPage: 1
                 }
             } else {
                 return {
-                    ...state, recipes: [...state.allRecipes.filter((recipe) => recipe.diets.includes(payload))]
+                    ...state, recipes: [...state.allRecipes.filter((recipe) => recipe.diets.includes(payload))],
+                    currentPage: 1
                 }
             }
         case FILTER_ORIGIN:
